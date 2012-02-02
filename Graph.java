@@ -113,6 +113,9 @@ public class Graph {
 			
 			next = current.getEdges().get(0);
 			
+			Collections.sort(next.getEdges(), Collections.reverseOrder());
+			Collections.sort(current.getEdges(), Collections.reverseOrder());
+			
 			Vertex.disconnect(current, next);
 			
 			solution.addStep(current.name(), next.name());

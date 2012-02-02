@@ -15,7 +15,7 @@ graph       ::= connection graph
 				{:
 					RESULT = myGraph;
 				:}
-				| connection 
+			|	connection 
 				{:
 					RESULT = myGraph;
 				:}
@@ -24,8 +24,6 @@ graph       ::= connection graph
 connection  ::= VERTEX:v1 EDGE VERTEX:v2
                 {:
                 	myGraph.addVertex(v1,v2);
-                	//System.out.println("CUP: added " + v1 + ", " + v2 );
                 :}
-                
                 ;
 

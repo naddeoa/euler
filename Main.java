@@ -8,10 +8,7 @@ public class Main {
 		
 			parser p = new parser(new Lexer(System.in));
 			
-			Graph result = (Graph)p.parse().value;
-			
-//			result.print();
-			
+			Graph result = (Graph)p.parse().value;			
 			result.getEulerian();
 			
 		}catch (Exception e) {
