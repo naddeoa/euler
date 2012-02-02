@@ -24,14 +24,15 @@ import java_cup.runtime.*;
 
 %}
 
-LineTerminator = \r|\n|\r\n
-WhiteSpace     = {LineTerminator} | [ \t\f]
-vertex			= [a-zA-Z][a-zA-Z0-9]*
-
+LineTerminator 	= \r|\n|\r\n
+WhiteSpace    	= {LineTerminator} | [ \t\f]
+vertex			= [a-zA-Z0-9]+
+comment			= #[^\n]*{LineTerminator}
 %%
 
 <YYINITIAL> {
 	
+	{comment}		{}
 	"--"			{ return symbol(sym.EDGE);}
 	{vertex}		{ return symbol(sym.VERTEX, yytext());}
 	

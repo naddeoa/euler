@@ -83,14 +83,14 @@ public class Graph {
 	 * Get the ArrayList that contains all of the vertices in the graph.
 	 * @return ArrayList of all vertices in graph
 	 */
-	public ArrayList<Vertex> vetVertices(){
+	public ArrayList<Vertex> getVertices(){
 		return vertices;
 	}
 	
 	
 	
 	
-	public ArrayList<Vertex> getEulerian(){
+	public Path getEulerian(){
 		
 		/* there cannot be any odd degree vertices in an Eulerian circuit */
 		for(int i = 0; i < vertices.size(); i++){
@@ -98,50 +98,31 @@ public class Graph {
 				return null;
 		}
 		
-		
-		/* work with a copy */
-		ArrayList<Vertex> vertices = new ArrayList<Vertex>(this.vertices);
+		/* the algorithm is destructive at the moment. Recreate the graph
+		 * as we go in 'backup' so we can still work with it afterwords */
+//		Graph backup = new Graph();
 		Path solution = new Path();
 		
 		/* the starting point will be the vertex with the highest degree */
-		Vertex start = vertices.get(0);
-		Vertex current = start;
+		Vertex current = vertices.get(0);
 		Vertex next;
 		
-		
+		/* Find the Eulerian circuit */
 		while(current.degree() > 0){
-			
 			next = current.getEdges().get(0);
 			
-			Collections.sort(next.getEdges(), Collections.reverseOrder());
-			Collections.sort(current.getEdges(), Collections.reverseOrder());
-			
 			Vertex.disconnect(current, next);
-			
+//			backup.addVertex(current.name(), next.name()); //recreate as we go
 			solution.addStep(current.name(), next.name());
 			
 			current = next;
-			
-			
 		}
 		
+		/* restore the graph */
+//		this.vertices = new ArrayList<Vertex>(backup.getVertices());
 		
-		System.out.println(solution.toString());
-		
-		
-		return null;
+		return solution;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	

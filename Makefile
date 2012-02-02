@@ -12,8 +12,10 @@ javac:all
 
 clean:
 	test -e Lexer.java~ && rm *~ || true
-	test -e sym.* && rm sym.* || true
-	test -e parser.* && rm parser.* || true
+	test -e sym.java && rm sym.java || true
+	test -e parser.java && rm parser.java || true
 	test -e Lexer.java && rm Lexer.java || true
 	rm *.class || true
 
+test:
+	./test.sh
