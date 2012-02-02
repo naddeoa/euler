@@ -1,0 +1,17 @@
+--------------------
+Compiling
+--------------------
+
+$ make
+
+
+--------------------
+Running
+--------------------
+
+$ java Main
+
+
+
+
+Apologies for the resubmission, accidentally submitted a buggy version.
