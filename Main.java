@@ -13,9 +13,12 @@ public class Main {
 			System.out.println("Parsing took:         " + (start - parseTime)/1000.0 + " seconds");
 			
 			
-//			System.out.println(result.getEulerian());
-			result.getEulerian();
 			
+			Path path = result.getEulerian();
+			
+			if( args.length > 0 && args[0].equals("-v"))
+				System.out.println("\nThe following is an Eulerian circuit based on the graph\n" + path);
+				
 			long end = System.currentTimeMillis();
 			System.out.println("Eulerian Path took:   " + (end - start)/1000.0 + " seconds");
 		}catch (Exception e) {}
