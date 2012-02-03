@@ -1,17 +1,47 @@
---------------------
-Compiling
---------------------
+----------------------------------------
+|              Compiling               |
+----------------------------------------
+	$ make
 
-$ make
+And clean with
 
-
---------------------
-Running
---------------------
-
-$ java Main
+	$ make clean
 
 
+----------------------------------------
+|               Running                |
+----------------------------------------
+The application can be run with
 
+	$ java Main < input/100.txt
 
-Apologies for the resubmission, accidentally submitted a buggy version.
+In place of '100.txt', you may use any of the test files provided
+in the input/ directory, or any file consisting of a series of
+connected vertices of the form
+
+  a--b b--c c--a ..
+  
+The files in the input/ dir are:
+
+	10000.txt
+	1000.txt
+	100.txt
+	20000.txt
+	40000.txt
+	5000.txt
+	input.txt
+	pentogram.txt
+	
+	
+	
+----------------------------------------
+|               Testing                |
+----------------------------------------
+I have included a test script that runs through the <number>.txt test
+files. This can be run with
+
+	$ ./test.sh
+	
+The test will take upwards of ten minutes to complete, depending on hardware.
+The test runs the application against each test file and prints out the 
+amount of time it takes to complete each time.
